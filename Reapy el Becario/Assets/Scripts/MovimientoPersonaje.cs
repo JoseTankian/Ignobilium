@@ -2,44 +2,90 @@
 using System.Collections;
 
 public class MovimientoPersonaje : MonoBehaviour {
-	public float fuerzaSalto =200f;
-	public float velocidad_pollo = 50f;
+	public float fuerzaSalto;
+	public float velocidad = 10f;
+	private int numsaltos=0;
+
 	Rigidbody2D rg;
-	// Use this for initialization
+
+	//Para luego meterle la animacion
+	//private Animator anim;
+
+	//creamos dos vectores, uno para la mira derecha y otro para la izq
+	private Vector3 miraDerecha; 
+	private Vector3 miraIzquierda;
+
+
 	void Start () 
 	{
 		rg= GetComponent<Rigidbody2D>();
+		/*
+		anim = GetComponent<Animator>();
+		//invertimos una de las escalas
+		miraIzquierda = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z); 
+		//escala por defecto
+		miraDerecha = transform.localScale; 
+		 */
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
-	
+		//Controles Salto
+		//Para que salte nuestro personaje tenemos que pulsar Espacio
+		if(Input.GetKeyUp(KeyCode.Space))
+		{
+			/*Tenemos un contador numsaltos que es 1, porque se ejecuta
+			 * una vez hemos pulsado espacio, por lo tanto siempre tendremos el contador en 1
+			 * */
+			numsaltos=1;
+			if(numsaltos==1)
+			{
+				salto();
+				GetComponent<Rigidbody2D>().AddForce (new Vector2(fuerzaSalto,fuerzaSalto));
+				//Personaje.rg.AddForce(new Vector3 (0,10,0)), ForceMode.VelocityChange);
+			}
+		}
 
-		if(Input.GetKey(KeyCode.A)){
-			mueve_izquierda();
+
+		//Controles Izquierda Derecha
+		if(Input.GetKey(KeyCode.A))
+		{
+			MovimientoIzq();
 		}
 		
 		if(Input.GetKey(KeyCode.D)){
-			mueve_derecha();
+			MovimientoDrch();
 		}
+		//Para insertar la animacion de caminar
+		//anim.SetFloat("caminando", Mathf.Abs(velocidad.x));
 		Vector2 velocidad = GetComponent<Rigidbody2D>().velocity;
 		Debug.DrawLine(transform.position, new Vector3(transform.position.x+ velocidad.x,
 		                                               transform.position.y + velocidad.y, transform.position.z));
 	}
 
-	void mueve_izquierda()
+
+	void salto()
 	{
-		transform.localScale=(new Vector3(1,1,1));
-		//rg.AddForce(new Vector2 (-(velocidad_pollo),0)); con esto lo que pasa esq a cada frame se le da esa velocidad y sale disparado
-		rg.velocity=(new Vector2 (-(velocidad_pollo),rg.velocity.y)); //de esta forma la velocidad siempre sera constante, el rg.velocity.y es para q caiga a la vez que salta
-		
+		//Aplicamos una fuerza en el salto en el eje Y
+		rg.AddForce(new Vector2 (0, fuerzaSalto));
 	}
-	void mueve_derecha()
+
+	void MovimientoIzq()
 	{
-		transform.localScale=(new Vector3(-1,1,1));
-		//rg.AddForce(new Vector2 (velocidad_pollo,0 ));
-		rg.velocity=(new Vector2 (velocidad_pollo,rg.velocity.y));
+		transform.localScale=miraIzquierda;	
+		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
+		 * para q caiga a la vez que salta
+		*/
+		rg.velocity=(new Vector2 (-(velocidad),rg.velocity.y)); 
+	
+	}
+	void MovimientoDrch()
+	{
+		transform.localScale=miraDerecha;	
+		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
+		 * para q caiga a la vez que salta
+		*/
+		rg.velocity=(new Vector2 (velocidad,rg.velocity.y));
 		
 	}
 }
