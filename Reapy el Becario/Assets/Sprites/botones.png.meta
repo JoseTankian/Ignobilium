@@ -1,18 +1,6 @@
 fileFormatVersion: 2
 guid: 54cb9b4c8debf494bb3ae972d421f3e3
-<<<<<<< HEAD
-timeCreated: 1448725334
-=======
-timeCreated: 1448724195
-=======
-guid: 8ef5caa715fba49d0a7b19aea165468c
-<<<<<<< HEAD
-timeCreated: 1448725490
-=======
-timeCreated: 1448723632
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
+timeCreated: 1448728089
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,7 +9,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -44,11 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
     aniso: 16
-=======
-    aniso: 1
->>>>>>> origin/master
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -71,35 +55,20 @@ TextureImporter:
     - name: botones_0
       rect:
         serializedVersion: 2
-<<<<<<< HEAD
         x: 72
         y: 1719
         width: 3577
         height: 1070
       alignment: 0
       pivot: {x: 0, y: 0}
-=======
-        x: 0
-        y: 1394.5
-        width: 3649
-        height: 1394.5
-      alignment: 0
-      pivot: {x: .5, y: .5}
->>>>>>> origin/master
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: botones_1
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
         y: 0
         width: 3577
         height: 628
-=======
-        y: .5
-        width: 3649
-        height: 1394.5
->>>>>>> origin/master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
