@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class seguimiento : MonoBehaviour {
 	public Transform player;
@@ -7,11 +8,15 @@ public class seguimiento : MonoBehaviour {
 	private float posicion;
 	private float distancia;
 	private bool me_sigue = false;
-
+	public Text dialogo;
+	public GameObject Bocadillo;
 	private bool dentro = false;
 	// Use this for initialization
 
 	// Update is called once per frame
+	void Start(){
+		Bocadillo.SetActive(false);
+	}
 	void Update () 
 	{
 		//Debug.Log (GameControl.fantasmaTeSigue);
@@ -25,6 +30,9 @@ public class seguimiento : MonoBehaviour {
 			} else if (Input.GetKey (KeyCode.A) && me_sigue) {
 				//me_sigue = false;
 				UnFantasmaMenos ();
+			} else if (Input.GetKey (KeyCode.D)) {
+				Bocadillo.SetActive(true);
+				dialogo.text ="ejemplo";
 			}
 		}
 
@@ -33,6 +41,7 @@ public class seguimiento : MonoBehaviour {
 			posicion = (posicion + Time.deltaTime * speed / 100);
 			transform.position = Vector3.Lerp (transform.position, player.transform.position, posicion);
 		} else if (!me_sigue) {
+
 			//GameControl.fantasmaTeSigue = false;
 		}
 		
