@@ -8,14 +8,14 @@ public class seguimiento : MonoBehaviour {
 	private float posicion;
 	private float distancia;
 	private bool me_sigue = false;
-	public Text dialogo;
-	public GameObject Bocadillo;
+//	public Text dialogo;
+//	public GameObject Bocadillo;
 	private bool dentro = false;
 	// Use this for initialization
 
 	// Update is called once per frame
 	void Start(){
-		Bocadillo.SetActive(false);
+//		Bocadillo.SetActive(false);
 	}
 	void Update () 
 	{
@@ -31,8 +31,8 @@ public class seguimiento : MonoBehaviour {
 				//me_sigue = false;
 				UnFantasmaMenos ();
 			} else if (Input.GetKey (KeyCode.D)) {
-				Bocadillo.SetActive(true);
-				dialogo.text ="ejemplo";
+				//Bocadillo.SetActive(true);
+				//dialogo.text ="ejemplo";
 			}
 		}
 
