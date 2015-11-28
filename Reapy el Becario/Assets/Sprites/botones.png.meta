@@ -1,10 +1,6 @@
 fileFormatVersion: 2
 guid: 54cb9b4c8debf494bb3ae972d421f3e3
-<<<<<<< Updated upstream
-timeCreated: 1448728089
-=======
-timeCreated: 1448728371
->>>>>>> Stashed changes
+timeCreated: 1448731374
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,35 +55,22 @@ TextureImporter:
     - name: botones_0
       rect:
         serializedVersion: 2
-<<<<<<< Updated upstream
         x: 72
         y: 1719
         width: 3577
         height: 1070
-=======
-        x: 0
-        y: 1394.5
-        width: 3649
-        height: 1394.5
->>>>>>> Stashed changes
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: botones_1
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< Updated upstream
         y: 0
         width: 3577
         height: 628
-=======
-        y: .5
-        width: 3649
-        height: 1394.5
->>>>>>> Stashed changes
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
