@@ -13,12 +13,14 @@ public class MovimientoPersonaje : MonoBehaviour
 	//private Animator anim;
 
 	//creamos dos vectores, uno para la mira derecha y otro para la izq
-	private Vector3 miraDerecha= new Vector3(1f,1f); 
-	private Vector3 miraIzquierda= new Vector3(-1f,1f); 
+	private Vector3 miraDerecha;
+	private Vector3 miraIzquierda;
 
 
 	void Start () 
 	{
+		miraDerecha = new Vector3(1f,1f,transform.position.z); 
+		miraIzquierda = new Vector3(-1f,1f,transform.position.z); 
 		rg= GetComponent<Rigidbody2D>();
 		/*
 		anim = GetComponent<Animator>();

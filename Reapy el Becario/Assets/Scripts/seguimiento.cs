@@ -7,33 +7,47 @@ public class seguimiento : MonoBehaviour {
 	private float posicion;
 	private float distancia;
 	private bool me_sigue = false;
+
+	private bool dentro = false;
 	// Use this for initialization
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (me_sigue) 
-		{
+		//Debug.Log (GameControl.fantasmaTeSigue);
+
+		if (dentro) {
+
+			if (Input.GetKey (KeyCode.S)) {
+				me_sigue = true;
+			//	UnFantasmaMas ();
+				//	Debug.Log ("Funciona");
+			} else if (Input.GetKey (KeyCode.A)) {
+				me_sigue = false;
+			//	UnFantasmaMenos ();
+			}
+		}
+
+		if (me_sigue) {
+			//GameControl.fantasmaTeSigue = true;
 			posicion = (posicion + Time.deltaTime * speed / 100);
 			transform.position = Vector3.Lerp (transform.position, player.transform.position, posicion);
+		} else if (!me_sigue) {
+			//GameControl.fantasmaTeSigue = false;
 		}
+		
 		/*
-		if(Input.GetKey(KeyCode.A))
-		{
-			me_sigue = !me_sigue;
-		}
-		*/
+			if(Input.GetKey(KeyCode.A))
+			{
+				me_sigue = !me_sigue;
+			}
+			*/
 	}
 
-	void OnTriggerEnter2D(Collider2D objeto)
-	{
-		Debug.Log ("Contacto");
 
-		if(objeto.transform.tag == "Player" && Input.GetKey(KeyCode.A)) // tambien se puede poner Debug.Log (objeto.name);
-		{  
-			me_sigue = !me_sigue;
-			Debug.Log ("Funciona");
-		}
+
+	public void SetDentro(bool seg){
+		dentro = seg;
 	}
 
 
