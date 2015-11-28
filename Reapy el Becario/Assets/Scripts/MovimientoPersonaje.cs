@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovimientoPersonaje : MonoBehaviour {
+public class MovimientoPersonaje : MonoBehaviour 
+{
 	public float fuerzaSalto;
 	public float velocidad = 10f;
 	private int numsaltos=0;
@@ -12,8 +13,8 @@ public class MovimientoPersonaje : MonoBehaviour {
 	//private Animator anim;
 
 	//creamos dos vectores, uno para la mira derecha y otro para la izq
-	private Vector3 miraDerecha; 
-	private Vector3 miraIzquierda;
+	private Vector3 miraDerecha= new Vector3(1f,1f); 
+	private Vector3 miraIzquierda= new Vector3(-1f,1f); 
 
 
 	void Start () 
@@ -76,7 +77,7 @@ public class MovimientoPersonaje : MonoBehaviour {
 		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
 		 * para q caiga a la vez que salta
 		*/
-		rg.velocity=(new Vector2 (-(velocidad),rg.velocity.y)); 
+		rg.velocity  = new Vector2 (-velocidad, 0);
 	
 	}
 	void MovimientoDrch()
@@ -85,7 +86,7 @@ public class MovimientoPersonaje : MonoBehaviour {
 		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
 		 * para q caiga a la vez que salta
 		*/
-		rg.velocity=(new Vector2 (velocidad,rg.velocity.y));
+		rg.velocity  = new Vector2(velocidad,0);
 		
 	}
 }
