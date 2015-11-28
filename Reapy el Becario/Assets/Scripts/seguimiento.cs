@@ -18,13 +18,13 @@ public class seguimiento : MonoBehaviour {
 
 		if (dentro) {
 
-			if (Input.GetKey (KeyCode.S)) {
-				me_sigue = true;
-			//	UnFantasmaMas ();
+			if (Input.GetKey (KeyCode.S) && !GameControl.fantasmaTeSigue) {
+				//me_sigue = true;
+				UnFantasmaMas ();
 				//	Debug.Log ("Funciona");
-			} else if (Input.GetKey (KeyCode.A)) {
-				me_sigue = false;
-			//	UnFantasmaMenos ();
+			} else if (Input.GetKey (KeyCode.A) && me_sigue) {
+				//me_sigue = false;
+				UnFantasmaMenos ();
 			}
 		}
 
@@ -44,6 +44,15 @@ public class seguimiento : MonoBehaviour {
 			*/
 	}
 
+	void UnFantasmaMas(){
+		GameControl.fantasmaTeSigue = true;
+		me_sigue = true;
+	}
+
+	void UnFantasmaMenos(){
+		GameControl.fantasmaTeSigue = false;
+		me_sigue = false;
+	}
 
 
 	public void SetDentro(bool seg){
