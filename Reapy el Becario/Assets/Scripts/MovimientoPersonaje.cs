@@ -33,11 +33,12 @@ public class MovimientoPersonaje : MonoBehaviour
 	{
 		//Controles Salto
 		//Para que salte nuestro personaje tenemos que pulsar Espacio
-		if(Input.GetKeyUp(KeyCode.Space))
+		/*
+		if(Input.GetKeyUp(KeyCode.UpArrow))
 		{
-			/*Tenemos un contador numsaltos que es 1, porque se ejecuta
-			 * una vez hemos pulsado espacio, por lo tanto siempre tendremos el contador en 1
-			 * */
+			//Tenemos un contador numsaltos que es 1, porque se ejecuta
+			 //* una vez hemos pulsado espacio, por lo tanto siempre tendremos el contador en 1
+			 //* *
 			numsaltos=1;
 			if(numsaltos==1)
 			{
@@ -46,15 +47,15 @@ public class MovimientoPersonaje : MonoBehaviour
 				//Personaje.rg.AddForce(new Vector3 (0,10,0)), ForceMode.VelocityChange);
 			}
 		}
-
+		*/
 
 		//Controles Izquierda Derecha
-		if(Input.GetKey(KeyCode.A))
+		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			MovimientoIzq();
 		}
 		
-		if(Input.GetKey(KeyCode.D)){
+		if(Input.GetKey(KeyCode.RightArrow)){
 			MovimientoDrch();
 		}
 		//Para insertar la animacion de caminar
