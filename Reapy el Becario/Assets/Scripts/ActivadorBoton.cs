@@ -20,20 +20,20 @@ public class ActivadorBoton : MonoBehaviour
 	}
 		
 	
-	void OnCollisionStay2D(Collision2D objeto)
+	void OnTriggerEnter2D(Collider2D objeto)
 	{
-		if (objeto.transform.tag == "Gordo")
+		if (objeto.transform.tag == "GordoFisica")
 		{
 			boton.SetBool("gordo",true);
 			botonpulsado  = true;
-			Debug.Log ("El botonFunciona!!!!!");
+		//	Debug.Log ("El botonFunciona!!!!!");
 		}
 	}
 
 
-	void OnCollisionExit2D(Collision2D objeto) 
+	void OnTriggerExit2D(Collider2D objeto) 
 	{
-		if (objeto.transform.tag == "Gordo")
+		if (objeto.transform.tag == "GordoFisica" )
 		{
 			boton.SetBool("gordo",false);
 			botonpulsado  = false;

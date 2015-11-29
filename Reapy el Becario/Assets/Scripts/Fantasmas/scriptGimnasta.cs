@@ -1,29 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class scriptJardinero : MonoBehaviour {
+public class scriptGimnasta : MonoBehaviour {
 
-	Animator animjardinero;
+	Animator animgimnasta;
 	public Transform player;
 	public float speed = 1;
 	public float lerpinicial = 0;
 	private float posicion;
 	private float distancia;
 	private bool me_sigue = false;
-	//	public Text dialogo;
-	//	public GameObject Bocadillo;
 	private bool dentro = false;
-	// Use this for initialization
-	public enum Estados {quieto, siguiendo, regando_arbol, transcend};
+
+	public enum Estados {quieto, siguiendo, pirueta, transcendiendo};
 	public Estados estado; 
-	bool regandofinal = false;
+
 	public Transform punto_arbol;
+	public bool gimnasta_volteando = false;
 	
 	// Update is called once per frame
 	void Start(){
 		//		Bocadillo.SetActive(false);
 		posicion = lerpinicial;
-		animjardinero = GetComponent<Animator> ();
+		animgimnasta = GetComponent<Animator> ();
 	}
 	void Update () 
 	{
@@ -31,43 +30,43 @@ public class scriptJardinero : MonoBehaviour {
 		switch (estado){
 			
 		case Estados.quieto:
-			animjardinero.SetBool("siguiendo",false);
+			animgimnasta.SetBool("siguiendo",false);
 			break;
-
+			
 		case Estados.siguiendo:
-			animjardinero.SetBool("siguiendo",true);
+			animgimnasta.SetBool("siguiendo",true);
 			posicion = (posicion + Time.deltaTime * speed / 100);
 			transform.position = Vector3.Lerp (transform.position, player.transform.position, posicion);
 			break;
-
-		case Estados.regando_arbol:
-			animjardinero.SetBool("regando", true);
+			
+		case Estados.pirueta:
+			animgimnasta.SetBool("pirueta", true);
+			Debug.Log ("HACIENDO PIRUETA");
 			transform.position = Vector3.Lerp (transform.position, punto_arbol.position, posicion);
-			regandofinal = true;
 			break;
-
-		case Estados.transcend:
-
-
+			
+		case Estados.transcendiendo:
+			
+			
 			break;
 			
 		default :
 			//Debug.Log ("...");
 			break;
 		}
-
+		
 		if (dentro) {
 			
-			if (Input.GetKey (KeyCode.S) && !GameControl.fantasmaTeSigue && !regandofinal) {
+			if (Input.GetKey (KeyCode.S) && !GameControl.fantasmaTeSigue) {
 				//me_sigue = true;
 				UnFantasmaMas ();
-
+				
 				//	Debug.Log ("Funciona");
 			} else if (Input.GetKey (KeyCode.A) && me_sigue) {
 				//me_sigue = false;
 				posicion = lerpinicial;
 				UnFantasmaMenos ();
-
+				
 			} else if (Input.GetKey (KeyCode.D)) {
 				//Bocadillo.SetActive(true);
 				//dialogo.text ="ejemplo";
@@ -75,12 +74,12 @@ public class scriptJardinero : MonoBehaviour {
 		}
 		
 		if (me_sigue) {
-
+			
 			estado = Estados.siguiendo;
-
+			
 		} else if (!me_sigue) {
 			
-
+			
 		}
 		
 		/*
@@ -103,21 +102,22 @@ public class scriptJardinero : MonoBehaviour {
 	}
 	
 	
-	public void SetDentro(bool seg){
+	public void SetDentro(bool seg) {
 		dentro = seg;
 	}
-
-	public void regando(){
+	
+	public void haciendoPirueta() {
 		if (!me_sigue) {
-
-			estado = Estados.regando_arbol;
+			estado = Estados.pirueta;
+		//	animgimnasta.SetBool("pirueta", true);
 		}
 	}
-
+	
 	public void transcendiendo(){
-		animjardinero.SetBool("transcendiendo",true);
+		estado = Estados.transcendiendo;
+		animgimnasta.SetBool("transcendiendo",true);
 	}
-
+	
 	public void destroy(){
 		Destroy (gameObject);
 	}
