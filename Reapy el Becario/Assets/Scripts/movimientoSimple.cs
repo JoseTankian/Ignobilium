@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Script de movimiento hecho por aniceto. Usamos este o el otro al final?
 public class movimientoSimple : MonoBehaviour {
 
 	public float speed = 10f;

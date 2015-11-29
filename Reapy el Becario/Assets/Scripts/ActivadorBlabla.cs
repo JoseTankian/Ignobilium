@@ -16,6 +16,7 @@ public class ActivadorBlabla : MonoBehaviour {
 	{
 
 	}
+	//Es una funcion para que cuando entre un objeto con el tag GordoFisica en el trigger del psicologo, empiece a generar particulas.
 	void OnTriggerEnter2D(Collider2D objeto)
 	{
 		if (objeto.transform.tag == "GordoFisica")
@@ -26,7 +27,7 @@ public class ActivadorBlabla : MonoBehaviour {
 		}
 	}
 	
-	
+	//Funcion para que cuando salga pare de generar particulas.
 	void OnTriggerExit2D(Collider2D objeto) 
 	{
 		if (objeto.transform.tag == "GordoFisica" )

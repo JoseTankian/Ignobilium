@@ -3,10 +3,11 @@ using System.Collections;
 
 public class MovimientoPersonaje : MonoBehaviour 
 {
+	//Nombramos la variable FuerzaSalto como valor tipo float
 	public float fuerzaSalto;
+	//Nombramos la variable velocidad como valor tipo float y le asignamos 10
 	public float velocidad = 10f;
-	private int numsaltos=0;
-
+	//Nombramos la variable rg como un Rigidbody2D que luego necesitaremos.
 	Rigidbody2D rg;
 
 	//Para luego meterle la animacion
@@ -19,6 +20,7 @@ public class MovimientoPersonaje : MonoBehaviour
 
 	void Start () 
 	{
+		//A las variables le asignamos un vector y le asignamos los valores de posicion del eje x y y. Para que miren a izquierda y derecha
 		miraDerecha = new Vector3(1f,1f,transform.position.z); 
 		miraIzquierda = new Vector3(-1f,1f,transform.position.z); 
 		rg= GetComponent<Rigidbody2D>();
@@ -33,7 +35,7 @@ public class MovimientoPersonaje : MonoBehaviour
 	
 	void Update () 
 	{
-		//Controles Salto
+		//Controles Salto Esto no se usa al final.
 		//Para que salte nuestro personaje tenemos que pulsar Espacio
 		/*
 		if(Input.GetKeyUp(KeyCode.UpArrow))
@@ -52,6 +54,7 @@ public class MovimientoPersonaje : MonoBehaviour
 		*/
 
 		//Controles Izquierda Derecha
+		//Cuando pasemos por teclado la tecla izquierda y derecha de las flechas, ejecutara la funcion MovimientoIzq y drch.
 		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			MovimientoIzq();
@@ -62,6 +65,7 @@ public class MovimientoPersonaje : MonoBehaviour
 		}
 		//Para insertar la animacion de caminar
 		//anim.SetFloat("caminando", Mathf.Abs(velocidad.x));
+
 		Vector2 velocidad = GetComponent<Rigidbody2D>().velocity;
 		Debug.DrawLine(transform.position, new Vector3(transform.position.x+ velocidad.x,
 		                                               transform.position.y + velocidad.y, transform.position.z));
@@ -76,6 +80,7 @@ public class MovimientoPersonaje : MonoBehaviour
 
 	void MovimientoIzq()
 	{
+		//Le pasamos los valores de la variable miraIzquierda de posicion.
 		transform.localScale=miraIzquierda;	
 		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
 		 * para q caiga a la vez que salta
@@ -85,6 +90,7 @@ public class MovimientoPersonaje : MonoBehaviour
 	}
 	void MovimientoDrch()
 	{
+		//Le pasamos los valores de la variable miraIzquierda de posicion.
 		transform.localScale=miraDerecha;	
 		/*De esta forma la velocidad siempre sera constante, el rg.velocity.y es 
 		 * para q caiga a la vez que salta

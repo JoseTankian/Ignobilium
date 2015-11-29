@@ -4,6 +4,7 @@ using System.Collections;
 public class ActivadorPolea: MonoBehaviour 
 	
 {
+
 	ActivadorBoton botonscript;
 	public string nombre_boton = "Boton";
 	Animator polea;
@@ -18,9 +19,11 @@ public class ActivadorPolea: MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//Si el boton esta pulsado, la animacion de la polea es true, por lo tanto esta subida la pared.
 		if (botonscript.botonpulsado) {
 			polea.SetBool ("boton", true);
 		
+			//Sino, la animacion de la polea es false, por lo tanto la pared esta bajada.
 		} else if (!botonscript.botonpulsado) {
 			polea.SetBool ("boton", false);
 		}
